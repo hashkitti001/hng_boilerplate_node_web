@@ -410,6 +410,7 @@ Update user profile
 | 500 | Internal server error |
 
 #### Link to Image Preview
-[Image]: https://imgur.com/a/wjPg3Gl
+![Alt text](https://imgur.com/a/wjPg3Gl)
+
 
 
