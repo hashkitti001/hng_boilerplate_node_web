@@ -1,6 +1,13 @@
 # HNG BACKEND TASK 3 - NodeJS Boilerplate [Argo Team]
 This is a sample Node js boilerplate Server based on the OpenAPI 3.0 specification.  
 
+### Contributors (Slack Usernames)
+@reneiii
+@Lanfear
+@Japheth Paul
+@Romauld
+@Hudhayfah
+
 Some useful links:
 - [The Argo team repository](https://github.com/hashkitti001/hng_boilerplate_node_web)
 
@@ -403,3 +410,6 @@ Update user profile
 | 500 | Internal server error |
 
 #### Link to Image Preview
+![Image](https://imgur.com/a/wjPg3Gl)
+
+
