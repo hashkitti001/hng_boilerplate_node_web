@@ -1,256 +1,405 @@
-# [App Name] Integration Documentation
+# HNG BACKEND TASK 3 - NodeJS Boilerplate [Argo Team]
+This is a sample Node js boilerplate Server based on the OpenAPI 3.0 specification.  
 
-## Overview
+Some useful links:
+- [The Argo team repository](https://github.com/hashkitti001/hng_boilerplate_node_web)
 
-[Description]
+- [The Entity relationship diagram](httpS://)
 
-## Folder Structure
+## Version: 1.0.11
 
-```
-|--- src
-|    |--- controllers
-|    |--- database
-|    |--- interfaces
-|    |--- middlewares
-|    |--- routes
-|    |--- services
-|    |--- utils
-|    |--- server.ts
-|--- .env
-|--- app.ts
-|--- .gitignore
-|--- package.json
-|--- tsconfig.json
-```
+### Terms of service
+http://swagger.io/terms/
 
-## Dependencies (Dev)
+**Contact information:**  
+apiteam@swagger.io  
 
-- Node.js
-- TypeScript
-- Express
-- ts-node-dev
-- [Other dependencies]
+**License:** [Apache 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
 
-## Getting Started
+[Find out more about Swagger](http://swagger.io)
+### /auth/register
 
-Before you begin, ensure you have the following installed on your machine:
+#### POST
+##### Summary:
 
-- [Node.js](https://nodejs.org/) (v14 or later)
-- [npm](https://www.npmjs.com/) (Node Package Manager, included with Node.js)
-- [Git](https://git-scm.com/)
+Register a new user
 
-## Contribution Guide
+##### Responses
 
-## Getting Started
+| Code | Description |
+| ---- | ----------- |
+| 201 | User registered successfully |
+| 400 | Bad request |
+| 409 | Conflict - User already exists |
+| 500 | Internal server error |
 
-#### If you don't have git on your machine, [install it](https://docs.github.com/en/get-started/quickstart/set-up-git).
+### /auth/login
 
-## Fork this repository
+#### POST
+##### Summary:
 
-Fork this repository by clicking on the fork button on the top of this page.
-This will create a copy of this repository in your account.
+Login a user
 
-## Clone the repository
+##### Responses
 
-<img align="right" width="300" src="https://firstcontributions.github.io/assets/Readme/clone.png" alt="clone this repository" />
+| Code | Description |
+| ---- | ----------- |
+| 200 | User logged in successfully |
+| 400 | Bad request |
+| 401 | Unauthorized |
+| 500 | Internal server error |
 
-Now clone the forked repository to your machine. Go to your GitHub account, open the forked repository, click on the code button and then click the _copy to clipboard_ icon.
+### /auth/social
 
-Open a terminal and run the following git command:
+#### POST
+##### Summary:
 
-```bash
-git clone "url you just copied"
-```
+Social authentication
 
-where "url you just copied" (without the quotation marks) is the url to this repository (your fork of this project). See the previous steps to obtain the url.
+##### Responses
 
-<img align="right" width="300" src="https://firstcontributions.github.io/assets/Readme/copy-to-clipboard.png" alt="copy URL to clipboard" />
+| Code | Description |
+| ---- | ----------- |
+| 200 | User authenticated successfully |
+| 400 | Bad request |
+| 401 | Unauthorized |
+| 500 | Internal server error |
 
-For example:
+### /auth/magic-link
 
-```bash
-git clone git@github.com:this-is-you/first-contributions.git
-```
+#### POST
+##### Summary:
 
-where `this-is-you` is your GitHub username. Here you're copying the contents of the first-contributions repository on GitHub to your computer.
+Send magic link for authentication
 
-## Create a branch
+##### Responses
 
-Change to the repository directory on your computer (if you are not already there):
+| Code | Description |
+| ---- | ----------- |
+| 200 | Magic link sent successfully |
+| 400 | Bad request |
+| 500 | Internal server error |
 
-```bash
-cd first-contributions
-```
+### /auth/magic-link/verify
 
-Now create a branch using the `git switch` command:
+#### POST
+##### Summary:
 
-```bash
-git switch -c your-new-branch-name
-```
+Verify magic link
 
-For example:
+##### Responses
 
-```bash
-git switch -c add-alonzo-church
-```
+| Code | Description |
+| ---- | ----------- |
+| 200 | Magic link verified successfully |
+| 400 | Bad request |
+| 500 | Internal server error |
 
-### Make Changes
+### /auth/change-password
 
-Make your changes to the codebase. Ensure your code follows the project's coding standards and guidelines.
+#### POST
+##### Summary:
 
-### Run Tests
+Change user password
 
-Run the existing tests to ensure your changes do not break anything. If you added new functionality, write corresponding tests.
+##### Responses
 
-```sh
-npm run test
-```
+| Code | Description |
+| ---- | ----------- |
+| 200 | Password changed successfully |
+| 400 | Bad request |
+| 401 | Unauthorized |
+| 500 | Internal server error |
 
-## commit those changes
+### /auth/get-otp
 
-Now open `Contributors.md` file in a text editor, add your name to it. Don't add it at the beginning or end of the file. Put it anywhere in between. Now, save the file.
+#### POST
+##### Summary:
 
-<img align="right" width="450" src="https://firstcontributions.github.io/assets/Readme/git-status.png" alt="git status" />
+Get OTP for authentication
 
-If you go to the project directory and execute the command `git status`, you'll see there are changes.
+##### Responses
 
-Add those changes to the branch you just created using the `git add` command:
+| Code | Description |
+| ---- | ----------- |
+| 200 | OTP sent successfully |
+| 400 | Bad request |
+| 500 | Internal server error |
 
-## Push changes to GitHub
+### /email/send
 
-Push your changes using the command `git push`:
+#### POST
+##### Summary:
 
-```bash
-git push -u origin your-branch-name
-```
+Send an email
 
-replacing `your-branch-name` with the name of the branch you created earlier.
+##### Responses
 
-<details>
-<summary> <strong>If you get any errors while pushing, click here:</strong> </summary>
+| Code | Description |
+| ---- | ----------- |
+| 200 | Email sent successfully |
+| 400 | Bad request |
+| 500 | Internal server error |
 
-- ### Authentication Error
-     <pre>remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.
-  remote: Please see https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/ for more information.
-  fatal: Authentication failed for 'https://github.com/<your-username>/first-contributions.git/'</pre>
-  Go to [GitHub's tutorial](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account) on generating and configuring an SSH key to your account.
+### /email/templates
 
-</details>
+#### GET
+##### Summary:
 
-## Submit your changes for review into Staging
+Get all email templates
 
-If you go to your repository on GitHub, you'll see a `Compare & pull request` button. Click on that button.
+##### Responses
 
-<img style="float: right;" src="https://firstcontributions.github.io/assets/Readme/compare-and-pull.png" alt="create a pull request" />
+| Code | Description |
+| ---- | ----------- |
+| 200 | List of email templates |
+| 500 | Internal server error |
 
-Now submit the pull request.
+#### POST
+##### Summary:
 
-<img style="float: right;" src="https://firstcontributions.github.io/assets/Readme/submit-pull-request.png" alt="submit pull request" />
+Create a new email template
 
-Soon your changes will be merged into the staging branch of this project. You will get a notification email once the changes have been merged.
+##### Responses
 
-## Setup Instructions
+| Code | Description |
+| ---- | ----------- |
+| 201 | Email template created successfully |
+| 400 | Bad request |
+| 500 | Internal server error |
 
-### 1. Clone the Repository
+### /email/templates/{id}
 
-First, clone the repository to your local machine using Git.
+#### GET
+##### Summary:
 
-```sh
-git clone https://github.com/your-username/[app-name].git
-cd [app-name]
-```
+Get an email template by ID
 
-### 2. Install Dependencies
+##### Parameters
 
-Navigate to the project directory and install the required dependencies.
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path | ID of the email template | Yes | string |
 
-```sh
-npm install
-```
+##### Responses
 
-### 3. Configure Environment Variables
+| Code | Description |
+| ---- | ----------- |
+| 200 | Email template details |
+| 404 | Template not found |
+| 500 | Internal server error |
 
-Create a `.env` file in the root directory of the project and add your environment-specific variables. You can use the provided `.env.example` file as a reference.
+#### PUT
+##### Summary:
 
-```sh
-cp .env.example .env
-```
+Update an email template
 
-Edit the `.env` file to match your environment configuration.
+##### Parameters
 
-### 4. Compile TypeScript
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path | ID of the email template | Yes | string |
 
-Compile the TypeScript code to JavaScript.
+##### Responses
 
-```sh
-npm run build
-```
+| Code | Description |
+| ---- | ----------- |
+| 200 | Email template updated successfully |
+| 400 | Bad request |
+| 404 | Template not found |
+| 500 | Internal server error |
 
-### 5. Run the Development Server
+#### DELETE
+##### Summary:
 
-Start the development server with the following command. This will also watch for any changes in your code and automatically restart the server.
+Delete an email template
 
-```sh
-npm run start:dev
-```
+##### Parameters
 
-### 6. Run the Production Server
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path | ID of the email template | Yes | string |
 
-To run the application in a production environment, use the following command:
+##### Responses
 
-```sh
-npm run start
-```
+| Code | Description |
+| ---- | ----------- |
+| 200 | Email template deleted successfully |
+| 404 | Template not found |
+| 500 | Internal server error |
 
-### 7. Verify the Setup
+### /payments/stripe/create-payment-intent
 
-Open your browser and navigate to `http://localhost:3000/api/v1/` to verify that the application is running correctly.
+#### POST
+##### Summary:
 
-## Folder Structure
+Create Stripe payment intent
 
-Here's an overview of the project's folder structure:
+##### Responses
 
-```
-|--- src
-|    |--- controllers
-          |--- v1
-|    |--- database
-|    |--- interfaces
-|    |--- middlewares
-|    |--- routes
-|         |--- v1
-|    |--- services
-|    |--- utils
-|    |--- server.ts
-|--- .env
-|--- app.ts
-|--- .gitignore
-|--- package.json
-|--- tsconfig.json
-```
+| Code | Description |
+| ---- | ----------- |
+| 200 | Payment intent created successfully |
+| 400 | Bad request |
+| 500 | Internal server error |
 
-## Scripts
+### /payments/internal/create
 
-Here are some useful npm scripts that you can use during development and production:
+#### POST
+##### Summary:
 
-- `npm run build`: Compiles the TypeScript code to JavaScript.
-- `npm run start:dev`: Starts the development server with live reloading.
-- `npm run start`: Starts the production server.
-- `npm run test`: Runs the test suite (if available).
-- `npm run lint`: Runs the linter to check for code style issues.
+Create an internal payment record
 
-## Additional Resources
+##### Responses
 
-- [Node.js Documentation](https://nodejs.org/en/docs/)
-- [TypeScript Documentation](https://www.typescriptlang.org/docs/)
-- [Express Documentation](https://expressjs.com/)
+| Code | Description |
+| ---- | ----------- |
+| 201 | Payment record created successfully |
+| 400 | Bad request |
+| 500 | Internal server error |
 
-By following these steps, you should have your Node.js and TypeScript application up and running. If you encounter any issues, please refer to the documentation of the respective tools or seek help from the community.
+### /notifications/send
 
-## API Endpoints
+#### POST
+##### Summary:
 
-All API endpoints can be referenced in the [API Reference](API_REFERENCE.md) document.
+Send a notification
 
-## Versioning
+##### Responses
 
-This project is versioned to ensure backward compatibility and easy maintenance. The current version is [version].
+| Code | Description |
+| ---- | ----------- |
+| 200 | Notification sent successfully |
+| 400 | Bad request |
+| 500 | Internal server error |
+
+### /blog/posts
+
+#### GET
+##### Summary:
+
+Get all blog posts
+
+##### Responses
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | List of blog posts |
+| 500 | Internal server error |
+
+#### POST
+##### Summary:
+
+Create a new blog post
+
+##### Responses
+
+| Code | Description |
+| ---- | ----------- |
+| 201 | Blog post created successfully |
+| 400 | Bad request |
+| 500 | Internal server error |
+
+### /blog/posts/{id}
+
+#### GET
+##### Summary:
+
+Get a blog post by ID
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | string |
+
+##### Responses
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Blog post details |
+| 404 | Blog post not found |
+| 500 | Internal server error |
+
+#### PUT
+##### Summary:
+
+Update a blog post by ID
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | string |
+
+##### Responses
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Blog post updated successfully |
+| 400 | Bad request |
+| 404 | Blog post not found |
+| 500 | Internal server error |
+
+#### DELETE
+##### Summary:
+
+Delete a blog post by ID
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | string |
+
+##### Responses
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Blog post deleted successfully |
+| 404 | Blog post not found |
+| 500 | Internal server error |
+
+### /invite/send
+
+#### POST
+##### Summary:
+
+Send an invite link
+
+##### Responses
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Invite link sent successfully |
+| 400 | Bad request |
+| 500 | Internal server error |
+
+### /users/profile
+
+#### GET
+##### Summary:
+
+Get users profile
+
+##### Responses
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Users data |
+| 500 | Internal server error |
+
+#### PATCH
+##### Summary:
+
+Update user profile
+
+##### Responses
+
+| Code | Description |
+| ---- | ----------- |
+| 204 | Profile updated successfully |
+| 422 | Validation error |
+| 500 | Internal server error |
+
+#### Link to Image Preview
